@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af733de68c3c3ea4f91b831f372defb0, type: 3}
+  m_Name: GlasSound
+  m_EditorClassIdentifier: 
+  footstepWalkAudioClip:
+  - {fileID: 8300000, guid: 0d4a6e08af6544e448ec4452ef79b585, type: 3}
+  - {fileID: 8300000, guid: 64dba921fed70404181c6659cbaed90a, type: 3}
+  - {fileID: 8300000, guid: 0f7e31d936657bc458afdb0220ed183c, type: 3}
+  - {fileID: 8300000, guid: e70875bf2677a104ea4d58bade32e759, type: 3}
+  - {fileID: 8300000, guid: a41ff1dc1f69ff54c8eb185b4668aff2, type: 3}
+  - {fileID: 8300000, guid: d4f69e0ff56185d4ca430ddff1cf41fc, type: 3}
+  - {fileID: 8300000, guid: 63dba49a72cb0e347a886e71f7a956ee, type: 3}
+  - {fileID: 8300000, guid: 9f94d57b86ab28941b25bb774b1d60a9, type: 3}
+  footstepRunAudioClip:
+  - {fileID: 8300000, guid: 6182b20b3f3227b46a983a0e7662cecc, type: 3}
+  - {fileID: 8300000, guid: 9e5dbe8e8936e254998ac1220ca3bb92, type: 3}
+  - {fileID: 8300000, guid: 1f469b7d081811c498e3bb7fb52d8092, type: 3}
+  - {fileID: 8300000, guid: 5d5dfe756429bd942bfe8ee2f8214330, type: 3}
+  - {fileID: 8300000, guid: b620c4d8f39708d4e94d193e99a9e63f, type: 3}
+  - {fileID: 8300000, guid: 340dc5a5f7b277f4d9e4200193784875, type: 3}
+  - {fileID: 8300000, guid: 21bede23244db424e8de35be5ea869b6, type: 3}
+  - {fileID: 8300000, guid: 2e64ef9315174be42a552a30513ddbcf, type: 3}

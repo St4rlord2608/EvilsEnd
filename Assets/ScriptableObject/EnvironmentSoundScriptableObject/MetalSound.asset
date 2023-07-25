@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af733de68c3c3ea4f91b831f372defb0, type: 3}
+  m_Name: MetalSound
+  m_EditorClassIdentifier: 
+  footstepWalkAudioClip:
+  - {fileID: 8300000, guid: 8f385b56c1683c34e998ae433408f8f8, type: 3}
+  - {fileID: 8300000, guid: 06d5ec85bf189dc42af6f771ed2044e5, type: 3}
+  - {fileID: 8300000, guid: 0ab6c8d4069ae974aa31e8853691d3ac, type: 3}
+  - {fileID: 8300000, guid: a5969bcbc184fe2478763e35ba1016e1, type: 3}
+  - {fileID: 8300000, guid: 3966906e3da819648b231d8a82d56df2, type: 3}
+  - {fileID: 8300000, guid: 41af3b845d0a506458871575368184a6, type: 3}
+  - {fileID: 8300000, guid: 46e8736298f2c154e9df8af45a6944a1, type: 3}
+  - {fileID: 8300000, guid: 4b682e69030509e41829aa5f9cde66a5, type: 3}
+  footstepRunAudioClip:
+  - {fileID: 8300000, guid: 8f385b56c1683c34e998ae433408f8f8, type: 3}
+  - {fileID: 8300000, guid: 06d5ec85bf189dc42af6f771ed2044e5, type: 3}
+  - {fileID: 8300000, guid: 0ab6c8d4069ae974aa31e8853691d3ac, type: 3}
+  - {fileID: 8300000, guid: a5969bcbc184fe2478763e35ba1016e1, type: 3}
+  - {fileID: 8300000, guid: 3966906e3da819648b231d8a82d56df2, type: 3}
+  - {fileID: 8300000, guid: 41af3b845d0a506458871575368184a6, type: 3}
+  - {fileID: 8300000, guid: 46e8736298f2c154e9df8af45a6944a1, type: 3}
+  - {fileID: 8300000, guid: 4b682e69030509e41829aa5f9cde66a5, type: 3}

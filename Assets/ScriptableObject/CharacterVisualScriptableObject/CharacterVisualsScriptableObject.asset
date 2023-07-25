@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ab695ac338d64478d25415338f8301, type: 3}
+  m_Name: CharacterVisualsScriptableObject
+  m_EditorClassIdentifier: 
+  characterVisuals:
+  - name: SM_Chr_Biker_Male_01
+    sex: 1
+  - name: SM_Chr_Cool_Female_01
+    sex: 0
+  - name: SM_Chr_Cool_Male_01
+    sex: 1
+  - name: SM_Chr_Eastern_Female_01
+    sex: 0
+  - name: SM_Chr_Criminal_Male_01
+    sex: 1
+  - name: SM_Chr_Emo_Female_01
+    sex: 0
+  - name: SM_Chr_Hazmat_Male_01
+    sex: 1
+  - name: SM_Chr_Homeless_Male_01
+    sex: 1
+  - name: SM_Chr_Hunter_Male_01
+    sex: 1
+  - name: SM_Chr_Islander_Male_01
+    sex: 1
+  - name: SM_Chr_Mechanic_Female_01
+    sex: 0
+  - name: SM_Chr_Nerd_Female_01
+    sex: 0
+  - name: SM_Chr_Nun_Female_01
+    sex: 0
+  - name: SM_Chr_Patient_Female_01
+    sex: 0
+  - name: SM_Chr_Press_Male_01
+    sex: 1
+  - name: SM_Chr_Punk_Female_01
+    sex: 0
+  - name: SM_Chr_RiotCop_Male_01
+    sex: 1
+  - name: SM_Chr_Scout_Female_01
+    sex: 0
+  - name: SM_Chr_Sheriff_Male_01
+    sex: 1
+  - name: SM_Chr_Soldier_Female_01
+    sex: 0
+  - name: SM_Chr_Soldier_Male_01
+    sex: 1
+  - name: SM_Chr_Teen_Female_01
+    sex: 0
+  - name: SM_Chr_Teen_Male_01
+    sex: 1
+  - name: SM_Chr_Waitress_Female_01
+    sex: 0
+  - name: SM_Chr_Wanderer_Male_01
+    sex: 1
+  - name: SM_Chr_Soldier_Female_01
+    sex: 0
+  - name: SM_Chr_Soldier_Female_02
+    sex: 0
+  - name: SM_Chr_Soldier_Male_01
+    sex: 1
+  - name: SM_Chr_Soldier_Male_02
+    sex: 1

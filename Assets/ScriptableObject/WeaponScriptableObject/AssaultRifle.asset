@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8caef6241ec1d9c41b8abd5f0c103d17, type: 3}
+  m_Name: AssaultRifle
+  m_EditorClassIdentifier: 
+  weaponType: Assault Rifle
+  defaultRecoilPower: 1
+  sprintingRecoilPower: 2
+  crouchingRecoilPower: 0.5
+  damage: 20
+  magazineRemoveAudioClip: {fileID: 8300000, guid: ca00005ab2bee7f48bcf6b2b01967b9a,
+    type: 3}
+  magazineAttachedAudioClip: {fileID: 8300000, guid: 7f93336545504234cbf53ece595dba61,
+    type: 3}
+  reloadLeverPullAudioClip: {fileID: 8300000, guid: d72f5a7051f351b498f2f8cecc0d3425,
+    type: 3}

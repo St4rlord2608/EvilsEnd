@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af733de68c3c3ea4f91b831f372defb0, type: 3}
+  m_Name: GrasSound
+  m_EditorClassIdentifier: 
+  footstepWalkAudioClip:
+  - {fileID: 8300000, guid: 374aa65caaabe234d974de2462c4318a, type: 3}
+  - {fileID: 8300000, guid: 16b490cfb367f50469456f577f5d2927, type: 3}
+  - {fileID: 8300000, guid: 08c321f27c69bd149aece1104508d576, type: 3}
+  - {fileID: 8300000, guid: 9b0f3251356d37f43959de10a92590b9, type: 3}
+  - {fileID: 8300000, guid: dde91c88d26e21f47abe5e9b26fd3c33, type: 3}
+  - {fileID: 8300000, guid: 303d767ecaa3b79419c1341f9140d45a, type: 3}
+  - {fileID: 8300000, guid: 88971cae9132d544998331fd2b970ee7, type: 3}
+  - {fileID: 8300000, guid: 5f44406fc13936f43b6d0cb9e35d5a54, type: 3}
+  footstepRunAudioClip:
+  - {fileID: 8300000, guid: fbe5efbcc2349574c9dc2acf88f199c9, type: 3}
+  - {fileID: 8300000, guid: f41f9339fdeab694d8f37397bfbf3a76, type: 3}
+  - {fileID: 8300000, guid: f339e45954b2ce44ca2e0ed0317cf217, type: 3}
+  - {fileID: 8300000, guid: f9a0d5b4a896a16408895adc148ab720, type: 3}
+  - {fileID: 8300000, guid: d86c01a53513a63468e4437775d2a3fe, type: 3}
+  - {fileID: 8300000, guid: 3ad80133fd5a1bd48a8b1f49fe5ee85f, type: 3}
+  - {fileID: 8300000, guid: 61f9d76b6eaca044e9792ba8641cd1c6, type: 3}
+  - {fileID: 8300000, guid: 76ecf23c66ac7f84a8d52aaf8516a146, type: 3}

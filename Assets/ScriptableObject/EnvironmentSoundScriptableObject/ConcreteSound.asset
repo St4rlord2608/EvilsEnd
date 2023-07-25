@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af733de68c3c3ea4f91b831f372defb0, type: 3}
+  m_Name: ConcreteSound
+  m_EditorClassIdentifier: 
+  footstepWalkAudioClip:
+  - {fileID: 8300000, guid: d88cbad2d217cd74ba1eb0899d6c55ad, type: 3}
+  - {fileID: 8300000, guid: ada024810fd950d408257d2b4903e899, type: 3}
+  - {fileID: 8300000, guid: 74fb0bf68831ec14e8bbc1d6ab1dfba5, type: 3}
+  - {fileID: 8300000, guid: 72fa4eaddcee6834c9fdd330daf0ea25, type: 3}
+  - {fileID: 8300000, guid: 4f4662159c986a84d837e300ab18b254, type: 3}
+  - {fileID: 8300000, guid: eaf994496ccc5594e8080f3b417dc6e4, type: 3}
+  - {fileID: 8300000, guid: dadaa610dcc8540478eb22b5eb22600d, type: 3}
+  - {fileID: 8300000, guid: b64b558762ca20345b14655cd876ec61, type: 3}
+  footstepRunAudioClip:
+  - {fileID: 8300000, guid: d9a50401294cf994db997588f91d42e3, type: 3}
+  - {fileID: 8300000, guid: d6ebde4a3ada7fb4cb40b4aee74b36d5, type: 3}
+  - {fileID: 8300000, guid: 0b287ec04efddae49a2dc3b04bf01485, type: 3}
+  - {fileID: 8300000, guid: 9be71da04af2bc54f86d0d71e776b4f6, type: 3}
+  - {fileID: 8300000, guid: a02e47b49f3156e40ada3797f5a7a5b7, type: 3}
+  - {fileID: 8300000, guid: 6544c41040573c14bb7b76beab3138f9, type: 3}
+  - {fileID: 8300000, guid: fe6f746272be5e34f90fdd09718d3782, type: 3}
+  - {fileID: 8300000, guid: 02d3537f01013d24284d147c8980b37a, type: 3}
