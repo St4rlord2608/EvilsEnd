@@ -35,7 +35,7 @@ public class ExitSafeHouseInteractable : SafeHouseInteractable
             SafeHouseCharacter safeHouseCharacter = SafeHouseCharacterManager.Instance.GetSelectedCharacter();
             Destroy(SafeHouseInventoryManager.Instance);
             ProgressData progressData = CurrentProgress.GetProgressData();
-            SceneLoader.LoadFromString(LevelDB.GetLevel(progressData.currentLevelID).levelName);
+            SceneLoader.Load(SceneLoader.Scene.CompleteMap);
         }
     }
 }

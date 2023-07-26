@@ -8,7 +8,7 @@ public class MainMenuLevelProgressionManager : MonoBehaviour
 
     private void Awake()
     {
-        LevelDB.ClearLevelDataList();
+        LevelDB.ClearLevelDataDictionary();
         foreach (LevelData levelData in allLevelData)
         {
             LevelDB.AddLevel(levelData);

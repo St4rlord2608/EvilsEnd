@@ -4705,6 +4705,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa23715cce818a84baf9e59d49e323ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicChangeBridgeMultiplier: 1
+  maxTimeUntilBackToNonCombatMusic: 5
+  maxTimeUntilBackToDefaultMusic: 5
+  combatAudioClips: []
+  sneakingAudioClips: []
+  defaultAudioClips: []
+  scriptedMusicHandling: 1
+  isInCombat: 0
+  isSneaking: 0
+  isPlayingCombatMusic: 0
+  isPlayingSneakingMusic: 0
+  isPlayingDefaultMusic: 0
 --- !u!4 &917211315
 Transform:
   m_ObjectHideFlags: 0
@@ -6562,15 +6574,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allLevelData:
-  - levelID: 0
-    levelName: IntroLevel
-    returnToSafeHouseAfterLevel: 1
-  - levelID: 0
-    levelName: IntroLevel
-    returnToSafeHouseAfterLevel: 0
-  - levelID: 0
-    levelName: Demo
-    returnToSafeHouseAfterLevel: 1
+  - levelName: IntroLevel
+    followUpLevelName: 
+    unlocked: 0
+    completed: 0
+  - levelName: PowerPlant
+    followUpLevelName: 
+    unlocked: 0
+    completed: 0
+  - levelName: SafeHouse
+    followUpLevelName: 
+    unlocked: 1
+    completed: 0
 --- !u!4 &1274784454
 Transform:
   m_ObjectHideFlags: 0

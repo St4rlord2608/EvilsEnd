@@ -28,7 +28,7 @@ public class SaveManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(SceneManager.GetActiveScene().name == SceneLoader.Scene.SafeHouse.ToString())
+        if(SceneManager.GetActiveScene().name == SceneLoader.Scene.SafeHouse.ToString() || SceneManager.GetActiveScene().name == SceneLoader.Scene.CompleteMap.ToString())
         {
             Save.SaveData();
         }

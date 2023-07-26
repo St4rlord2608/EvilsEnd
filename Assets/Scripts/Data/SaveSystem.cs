@@ -2,6 +2,7 @@ using UnityEngine;
 using JetBrains.Annotations;
 using System.IO;
 using System;
+using System.Collections.Generic;
 
 public static class SaveSystem
 {
@@ -47,14 +48,20 @@ public static class SaveSystem
             Directory.Delete(Application.persistentDataPath + saveGameFolderName);
             Directory.CreateDirectory(Application.persistentDataPath + saveGameFolderName);
         }
+        List<LevelData> levelDataList = new List<LevelData>();
+        foreach(KeyValuePair<string, LevelData> levelData in LevelDB.levelDataDictionary)
+        {
+            levelDataList.Add(levelData.Value);
+        }
         SaveData(new CompleteData()
         {
             ProgressData = new ProgressData()
             {
-                saveName = folderName
+                saveName = folderName,
+                currentLevelName = "IntroLevel"
             },
-            LevelDatas = LevelDB.levelDataList
-            
+            LevelDatas = levelDataList
+
         });
         OnNewGameCreated?.Invoke(null, EventArgs.Empty);
     }

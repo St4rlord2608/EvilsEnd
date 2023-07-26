@@ -50,7 +50,7 @@ public static class Load
 
     private static void WriteLevelDB(CompleteData completeData)
     {
-        LevelDB.ClearLevelDataList();
+        LevelDB.ClearLevelDataDictionary();
         foreach(LevelData levelData in completeData.LevelDatas)
         {
             LevelDB.AddLevel(levelData);

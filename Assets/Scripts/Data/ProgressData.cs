@@ -6,6 +6,5 @@ using UnityEngine;
 public struct ProgressData
 {
     public string saveName;
-    public int currentLevelID;
-    public bool isInSaveHouse;
+    public string currentLevelName;
 }
