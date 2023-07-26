@@ -16,13 +16,18 @@ public static class CurrentProgress
         return progressData;
     }
 
-    public static void CompletetLevel()
+    public static void SetCurrentLevel(string levelName)
     {
-        progressData.currentLevelID++;
+        progressData.currentLevelName = levelName;
     }
 
-    public static void SetIsSafeHouse(bool isInSaveHouse)
-    {
-        progressData.isInSaveHouse = isInSaveHouse;
-    }
+    //public static void CompletetLevel()
+    //{
+    //    progressData.currentLevelID++;
+    //}
+
+    //public static void SetIsSafeHouse(bool isInSaveHouse)
+    //{
+    //    progressData.isInSaveHouse = isInSaveHouse;
+    //}
 }

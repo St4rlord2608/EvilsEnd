@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     private bool isPause = false;
     private bool isSafeHouse = false;
+    private string currentScene;
 
     public event EventHandler OnGamePause;
     public event EventHandler OnGameResume;
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        currentScene = SceneManager.GetActiveScene().name;
+        CurrentProgress.SetCurrentLevel(currentScene);
         if(sceneType == SceneType.SafeHouse)
         {
             isSafeHouse = true;
@@ -33,7 +37,6 @@ public class GameManager : MonoBehaviour
         {
             isSafeHouse = false;
         }
-        CurrentProgress.SetIsSafeHouse(isSafeHouse);
     }
     private void Start()
     {

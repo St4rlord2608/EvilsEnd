@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 1247967099580586005}
   - component: {fileID: -7401305662325929941}
   - component: {fileID: -3626043509751526384}
-  m_Layer: 0
+  - component: {fileID: -7996661911800856902}
+  m_Layer: 6
   m_Name: SM_Bld_Floor_Lines_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,3 +156,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a26fd78f33ce047a31797afb66b877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7996661911800856902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227046772372826973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207e5077d20f98f4ea7bbd42305773b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundData: {fileID: 11400000, guid: 113b65d4cdae3af4caadb54bfe184c47, type: 2}

@@ -12,6 +12,7 @@ public static class SceneLoader
         LoadingScene,
         Demo,
         SafeHouse,
+        CompleteMap
     }
 
     private static Scene targetScene;

@@ -4,21 +4,29 @@ using UnityEngine;
 
 public static class LevelDB
 {
-    public static List<LevelData> levelDataList = new List<LevelData>();
+    public static Dictionary<string,LevelData> levelDataDictionary = new Dictionary<string, LevelData>();
 
-    public static void ClearLevelDataList()
+    public static void ClearLevelDataDictionary()
     {
-        levelDataList.Clear();
+        levelDataDictionary.Clear();
     }
     
     public static void AddLevel(LevelData levelData)
     {
-        levelData.levelID = levelDataList.Count;
-        levelDataList.Add(levelData);
+        levelDataDictionary.Add(levelData.levelName, levelData);
     }
 
-    public static LevelData GetLevel(int levelID)
+    public static LevelData GetLevel(string levelName)
     {
-        return levelDataList[levelID];
+        return levelDataDictionary[levelName];
+    }
+
+    public static bool CheckIfLevelIsInDictionary(string levelname)
+    {
+        if(levelDataDictionary.ContainsKey(levelname))
+        {
+            return true;    
+        }
+        return false;
     }
 }

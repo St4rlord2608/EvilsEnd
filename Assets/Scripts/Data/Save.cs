@@ -27,9 +27,9 @@ public static class Save
     private static void CreateLevelDataList()
     {
         levelDataList = new List<LevelData>();
-        foreach (LevelData levelData in LevelDB.levelDataList)
+        foreach(KeyValuePair<string, LevelData> levelData in LevelDB.levelDataDictionary)
         {
-            levelDataList.Add(levelData);
+            levelDataList.Add(levelData.Value);
         }
     }
 

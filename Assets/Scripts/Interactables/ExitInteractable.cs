@@ -30,17 +30,14 @@ public class ExitInteractable : Interactable
         }
         Save.SaveData();
         ProgressData progressData = CurrentProgress.GetProgressData();
-        CurrentProgress.CompletetLevel();
-        LevelData levelData = LevelDB.GetLevel(progressData.currentLevelID);
-        if (levelData.returnToSafeHouseAfterLevel)
+        LevelData levelData = LevelDB.GetLevel(progressData.currentLevelName);
+        if (levelData.followUpLevelName != "")
         {
-            SceneLoader.Load(SceneLoader.Scene.SafeHouse);
+            SceneLoader.LoadFromString(levelData.followUpLevelName);
         }
         else
         {
-            progressData = CurrentProgress.GetProgressData();
-            levelData = LevelDB.GetLevel(progressData.currentLevelID);
-            SceneLoader.LoadFromString(levelData.levelName);
+            SceneLoader.Load(SceneLoader.Scene.CompleteMap);
         }
         
     }

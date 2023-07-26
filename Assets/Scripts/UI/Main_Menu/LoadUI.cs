@@ -64,15 +64,7 @@ public class LoadUI : MonoBehaviour
 
     private void LoadScene()
     {
-        if(CurrentProgress.GetProgressData().isInSaveHouse)
-        {
-            SceneLoader.Load(SceneLoader.Scene.SafeHouse);
-        }
-        else
-        {
-            SceneManager.LoadScene(LevelDB.GetLevel(CurrentProgress.GetProgressData().currentLevelID).levelName);
-        }
-        
+        SceneManager.LoadScene(CurrentProgress.GetProgressData().currentLevelName);
     }
 
     private void SaveSystem_OnNewGameCreated(object sender, EventArgs e)

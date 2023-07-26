@@ -42,8 +42,7 @@ public class NewGameUI : MonoBehaviour
         ProgressData progressData = new ProgressData()
         {
             saveName = saveName,
-            currentLevelID = 0,
-            isInSaveHouse = false,
+            currentLevelName = "IntroLevel"
         };
         CurrentProgress.SetProgressData(progressData);
         SaveSystem.CreateNewGame(progressData.saveName);
