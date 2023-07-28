@@ -37,4 +37,9 @@ public class LoadLevelUI : MonoBehaviour
         }
         
     }
+
+    public string GetLevelName()
+    {
+        return levelName;
+    }
 }

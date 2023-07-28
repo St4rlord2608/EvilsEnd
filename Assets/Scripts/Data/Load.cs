@@ -17,6 +17,7 @@ public static class Load
             WriteExploreLootDB(completeData);
             WriteSafeHouseLootDB(completeData);
             WriteLevelDB(completeData);
+            WriteWorldQuestDB(completeData);
         }
         HasBeenLoaded = true;
     }
@@ -55,5 +56,10 @@ public static class Load
         {
             LevelDB.AddLevel(levelData);
         }
+    }
+
+    private static void WriteWorldQuestDB(CompleteData completeData)
+    {
+        WorldQuestDB.SetQuests(completeData.WorldQuests);
     }
 }

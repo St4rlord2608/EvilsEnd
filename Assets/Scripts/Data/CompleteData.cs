@@ -11,6 +11,7 @@ public class CompleteData
     public List<ExploreLoot> ExploreLootData = new List<ExploreLoot>();
     public List<SafeHouseLoot> SafeHouseLootData = new List<SafeHouseLoot>();
     public List<LevelData> LevelDatas = new List<LevelData>();
+    public List<WorldQuest> WorldQuests = new List<WorldQuest>();
 
 
     public void SetPlayerData(PlayerData playerData)
@@ -46,5 +47,10 @@ public class CompleteData
     public void SetLevelData(List<LevelData> levelDatas)
     {
         LevelDatas = levelDatas;
+    }
+
+    public void SetWorldQuests(List<WorldQuest> worldQuests)
+    {
+        WorldQuests = worldQuests;
     }
 }

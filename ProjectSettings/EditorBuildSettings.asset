@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/GameScenes/PowerPlant.unity
     guid: eb2c7f395d99b104cb60fb265cd0a265
+  - enabled: 1
+    path: Assets/_Scenes/GameScenes/SafeHouseEntrance.unity
+    guid: 640a712739c2a2748915ad0fbaed3946
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}

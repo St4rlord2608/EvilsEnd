@@ -10,6 +10,7 @@ public static class Save
     private static List<ExploreLoot> exploreLootList = new List<ExploreLoot>();
     private static List<SafeHouseLoot> safeHouseLootList = new List<SafeHouseLoot>();
     private static List<LevelData> levelDataList = new List<LevelData>();
+    private static List<WorldQuest> worldQuestList = new List<WorldQuest>();
 
     private static void CreatePlayerData()
     {
@@ -59,6 +60,11 @@ public static class Save
             safeHouseLootList.Add(SafeHouseLootDB.GetSafeHouseLoot(type));
         }
     }
+
+    private static void CreateWorldQuestList()
+    {
+        worldQuestList = WorldQuestDB.GetQuests();
+    }
     public static void SaveData()
     {
         CreatePlayerData();
@@ -66,6 +72,7 @@ public static class Save
         CreateExploreLootList();
         CreateSafeHouseLootList();
         CreateLevelDataList();
+        CreateWorldQuestList();
         CompleteData completeData = new CompleteData();
         completeData.SetPlayerData(playerData);
         completeData.SetProgressData(CurrentProgress.GetProgressData());
@@ -73,6 +80,7 @@ public static class Save
         completeData.SetExploreLootData(exploreLootList);
         completeData.SetSafeHouseLootData(safeHouseLootList);
         completeData.SetLevelData(levelDataList);
+        completeData.SetWorldQuests(worldQuestList);
         SaveSystem.SaveData(completeData);
     }
 }

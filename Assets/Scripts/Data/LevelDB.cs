@@ -21,6 +21,11 @@ public static class LevelDB
         return levelDataDictionary[levelName];
     }
 
+    public static void UpdateLevel(LevelData levelData)
+    {
+        levelDataDictionary[levelData.levelName] = levelData;
+    }
+
     public static bool CheckIfLevelIsInDictionary(string levelname)
     {
         if(levelDataDictionary.ContainsKey(levelname))

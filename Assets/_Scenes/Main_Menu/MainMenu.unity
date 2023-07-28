@@ -6584,7 +6584,11 @@ MonoBehaviour:
     completed: 0
   - levelName: SafeHouse
     followUpLevelName: 
-    unlocked: 1
+    unlocked: 0
+    completed: 0
+  - levelName: SafeHouseEntrance
+    followUpLevelName: 
+    unlocked: 0
     completed: 0
 --- !u!4 &1274784454
 Transform:

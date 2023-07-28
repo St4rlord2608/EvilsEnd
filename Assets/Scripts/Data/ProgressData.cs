@@ -7,4 +7,5 @@ public struct ProgressData
 {
     public string saveName;
     public string currentLevelName;
+    public bool WorldQuestsHaveBeenInitialized;
 }
