@@ -179,6 +179,13 @@ public class MusicManager : MonoBehaviour
         return false;
     }
 
+    public void DirectlyChangeMusicClip(AudioClip audioClip)
+    {
+        audioSource.volume = volume;
+        audioSource.clip = audioClip;
+        audioSource.Play();
+    }
+
     public void ActivateDefaultMusicHandling()
     {
         scriptedMusicHandling = false;
@@ -205,5 +212,15 @@ public class MusicManager : MonoBehaviour
             isSneaking = true;
             currentTimeUntilBackToDefaultMusic = 0;
         }
+    }
+
+    public void DeactivateLoop()
+    {
+        audioSource.loop = false;
+    }
+
+    public void ActivateLoop()
+    {
+        audioSource.loop = true;
     }
 }

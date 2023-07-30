@@ -7,8 +7,6 @@ using UnityEngine.Animations.Rigging;
 public class PlayerAim : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera aimVirtualCamera;
-    [SerializeField] private float normalSensitivity;
-    [SerializeField] private float aimSensitivity;
     [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
     [SerializeField] private Transform aimTarget;
     [SerializeField] private Rig aimRig;
@@ -20,6 +18,9 @@ public class PlayerAim : MonoBehaviour
     [SerializeField] private float changeMovementDirectionSpeed;
     [SerializeField] private float changeRigWeightSpeed = 2.0f;
     [SerializeField] private Transform characterMovementDirectionOrientationTransform;
+
+    private float normalSensitivity;
+    private float aimSensitivity;
 
     public bool isRotatingLeft = false;
     public bool isRotatingRight = false;
@@ -61,21 +62,55 @@ public class PlayerAim : MonoBehaviour
         GameInput.Instance.OnSwitchCombatMode += GameInput_OnSwitchCombatMode;
         GameInput.Instance.OnShootStarted += GameInput_OnShootStarted;
         GameInput.Instance.OnAimStarted += GameInput_OnAimStarted;
+        if(SettingsUI.Instance != null)
+        {
+            aimSensitivity = SettingsUI.Instance.GetAimSens() / 10;
+            normalSensitivity = SettingsUI.Instance.GetUnAimSens() / 10;
+            SettingsUI.Instance.onAimedMouseSensChange += SettingsUI_onAimedMouseSensChange;
+            SettingsUI.Instance.onUnAimedMouseSensChange += SettingsUI_onUnAimedMouseSensChange;
+        }
+        else
+        {
+            aimSensitivity = 0.1f;
+            normalSensitivity = 0.2f;
+        }
+    }
+
+    private void SettingsUI_onUnAimedMouseSensChange(object sender, SettingsUI.UnAimedMouseSensChangeEventArgs e)
+    {
+        normalSensitivity = e.unAimedMouseSens / 10;
+    }
+
+    private void SettingsUI_onAimedMouseSensChange(object sender, SettingsUI.AimedMouseSensChangeEventArgs e)
+    {
+        aimSensitivity = e.aimedMouseSens / 10;
     }
 
     private void GameInput_OnAimStarted(object sender, System.EventArgs e)
     {
-        combatModeIsActive = true;
+        if(!playerReloading.GetIsReloading())
+        {
+            combatModeIsActive = true;
+        }
+        
     }
 
     private void GameInput_OnShootStarted(object sender, System.EventArgs e)
     {
-        combatModeIsActive = true;
+        if (!playerReloading.GetIsReloading())
+        {
+            combatModeIsActive = true;
+        }
+        
     }
 
     private void GameInput_OnSwitchCombatMode(object sender, System.EventArgs e)
     {
-        combatModeIsActive = !combatModeIsActive;
+        if (!playerReloading.GetIsReloading())
+        {
+            combatModeIsActive = !combatModeIsActive;
+        }
+        
     }
 
     private void Update()
@@ -89,27 +124,31 @@ public class PlayerAim : MonoBehaviour
 
     private void CheckIfIsAimingOnEnemy()
     {
-        Vector3 screenCenterPoint = new Vector3(Screen.width / 2f, Screen.height / 2f);
-        Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, shootableLayers))
+        if(CrosshairUI.Instance != null)
         {
-            if (raycastHit.transform.TryGetComponent<Enemy>(out Enemy enemy))
+            Vector3 screenCenterPoint = new Vector3(Screen.width / 2f, Screen.height / 2f);
+            Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, shootableLayers))
             {
-                CrosshairUI.Instance.ShowEnemyAim();
-            }
-            else
-            {
-                enemy = raycastHit.transform.GetComponentInParent<Enemy>();
-                if(enemy != null)
+                if (raycastHit.transform.TryGetComponent<Enemy>(out Enemy enemy))
                 {
                     CrosshairUI.Instance.ShowEnemyAim();
                 }
                 else
                 {
-                    CrosshairUI.Instance.HideEnemyAim();
+                    enemy = raycastHit.transform.GetComponentInParent<Enemy>();
+                    if (enemy != null)
+                    {
+                        CrosshairUI.Instance.ShowEnemyAim();
+                    }
+                    else
+                    {
+                        CrosshairUI.Instance.HideEnemyAim();
+                    }
                 }
             }
         }
+        
     }
 
     private void Aiming()
@@ -147,13 +186,13 @@ public class PlayerAim : MonoBehaviour
             if (GameInput.Instance.GetAim() == 1)
             {
                 aimVirtualCamera.gameObject.SetActive(true);
+                playerThirdPersonCamera.SetMouseSensitivity(aimSensitivity);
             }
             else
             {
                 aimVirtualCamera.gameObject.SetActive(false);
                 playerThirdPersonCamera.SetMouseSensitivity(normalSensitivity);
             }
-            playerThirdPersonCamera.SetMouseSensitivity(aimSensitivity);
             worldAimTarget = aimTarget.position;
             Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
             //RotateWeaponToMousePos();

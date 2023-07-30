@@ -16,6 +16,7 @@ public class DamageIndicatorUI : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        damageIndicator.gameObject.SetActive(false);
     }
 
     private void Update()

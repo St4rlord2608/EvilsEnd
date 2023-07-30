@@ -9,6 +9,11 @@ public class HealthBarUI : MonoBehaviour
 
     [SerializeField] private Image barImage;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
 
     public void TriggerHealthChanged(float normalizedHealth)
     {

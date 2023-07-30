@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NewGameUI : MonoBehaviour
@@ -46,6 +47,19 @@ public class NewGameUI : MonoBehaviour
         };
         CurrentProgress.SetProgressData(progressData);
         SaveSystem.CreateNewGame(progressData.saveName);
+        LoadSaveGame(saveName);
+    }
+
+    private void LoadSaveGame(string saveName)
+    {
+        SaveSystem.SetSaveGameFolderName(saveName);
+        Load.LoadAllData();
+        LoadScene();
+    }
+
+    private void LoadScene()
+    {
+        SceneLoader.LoadFromString(CurrentProgress.GetProgressData().currentLevelName);
     }
 
     public void Show()

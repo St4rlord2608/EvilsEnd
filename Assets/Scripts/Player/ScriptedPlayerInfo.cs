@@ -9,6 +9,7 @@ public class ScriptedPlayerInfo : MonoBehaviour
     [SerializeField] private Transform characterVisual;
     [SerializeField] private string sex;
     [SerializeField] private CharacterVisualsScriptableObject characterVisualData;
+    [SerializeField] private bool transferCharacterToSafehouse;
 
     private int id = 0;
     private Character character;
@@ -43,5 +44,10 @@ public class ScriptedPlayerInfo : MonoBehaviour
     public Character GetScriptedCharacter()
     {
         return character;
+    }
+
+    public bool CheckIfTransferToSafeHouseIsActive()
+    {
+        return transferCharacterToSafehouse;
     }
 }

@@ -15,7 +15,7 @@ public class PlayerSound : MonoBehaviour
     [SerializeField] private float rightFootSoundMaxCooldown = 0.1f;
     [Space]
     [SerializeField] private LayerMask groundLayers;
-    [SerializeField] private float groundCheckLength = +-2f;
+    [SerializeField] private float groundCheckLength = 2f;
     [Space]
     [SerializeField] private float sneakMusicTriggerRadius = 20f;
 

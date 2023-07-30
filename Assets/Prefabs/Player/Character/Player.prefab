@@ -1077,8 +1077,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimVirtualCamera: {fileID: 0}
-  normalSensitivity: 0.2
-  aimSensitivity: 0.1
   aimColliderLayerMask:
     serializedVersion: 2
     m_Bits: 16384
@@ -1136,7 +1134,7 @@ MonoBehaviour:
   leftArmLayer: 10
   rightArmLayer: 11
   headLayer: 12
-  maxShootingNoise: 20
+  maxShootingNoise: 40
   bulletTrail: {fileID: 1162402082420591379, guid: 5820f12436c145341b7cfec1f2b51c7f,
     type: 3}
 --- !u!114 &3960617509547656145
@@ -1204,8 +1202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMax: 100
-  damageIndicator: {fileID: 0}
-  damageIndicatorMaxShowTime: 2
+  deathAudioClip: {fileID: 8300000, guid: 44f1a1d046184473da88fef2b501bbbd, type: 3}
 --- !u!114 &7135604543072256535
 MonoBehaviour:
   m_ObjectHideFlags: 0

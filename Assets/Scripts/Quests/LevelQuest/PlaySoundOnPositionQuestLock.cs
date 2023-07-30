@@ -17,11 +17,12 @@ public class PlaySoundOnPositionQuestLock : QuestLock
 
     private AudioSource audioSource;
 
-    private void Awake()
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = SoundManager.Instance.GetVolume() * volumeMultiplier;
         audioClipLength = audioClip.length;
+        audioClipCurrentLength = audioClipLength;
         SoundManager.Instance.OnSoundEffectVolumeChange += SoundManager_OnSoundEffectVolumeChange;
     }
 
@@ -32,11 +33,15 @@ public class PlaySoundOnPositionQuestLock : QuestLock
 
     private void Update()
     {
+        if(Time.timeScale == 0)
+        {
+            audioClipCurrentLength = audioClipLength - 0.1f;
+        }
         if (!questCompleted)
         {
             return;
         }
-        if(playedSoundCount != 0)
+        if(playSoundAmount != 0)
         {
             audioClipCurrentLength += Time.deltaTime;
             if (audioClipCurrentLength >= audioClipLength)
@@ -45,7 +50,17 @@ public class PlaySoundOnPositionQuestLock : QuestLock
                 {
                     return;
                 }
+                audioSource.Play();
                 playedSoundCount++;
+                audioClipCurrentLength = 0f;
+            }
+        }
+        else
+        {
+            audioClipCurrentLength += Time.deltaTime;
+            if (audioClipCurrentLength >= audioClipLength)
+            {
+                audioSource.Play();
                 audioClipCurrentLength = 0f;
             }
         }
@@ -65,15 +80,8 @@ public class PlaySoundOnPositionQuestLock : QuestLock
     }
     public override void QuestCompleted()
     {
-        if (!questCompleted)
-        {
-            questCompleted = true;
-            audioSource.Play();
-        }
-        else
-        {
-            audioSource.Stop();
-        }
+
+            questCompleted = !questCompleted;
         
     }
 }

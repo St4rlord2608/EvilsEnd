@@ -27,7 +27,11 @@ public class QuestHandler : MonoBehaviour
     {
         if (questList[questIndex].QuestTransform.Length > 0)
         {
-            QuestDirectionUI.Instance.SetQuestTransform(questList[questIndex].QuestTransform[0]);
+            if(QuestDirectionUI.Instance != null)
+            {
+                QuestDirectionUI.Instance.SetQuestTransform(questList[questIndex].QuestTransform[0]);
+            }
+            
         }
         
     }

@@ -36,6 +36,10 @@ public class MainMenuUI : MonoBehaviour
             MainMenuSettingsUI.Instance.Show();
             Hide();
         });
+        exitButton.onClick.AddListener(() =>
+        {
+            Application.Quit();
+        });
     }
 
     public void Show()

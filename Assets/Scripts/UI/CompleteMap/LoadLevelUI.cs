@@ -14,7 +14,7 @@ public class LoadLevelUI : MonoBehaviour
     {
         loadLevelButton.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene(levelName);
+            SceneLoader.LoadFromString(levelName);
         });
     }
 

@@ -16,23 +16,37 @@ public static class SceneLoader
     }
 
     private static Scene targetScene;
+    private static string targetSceneString;
+
+    private static bool loadByString = false;
 
 
     public static void Load(Scene targetScene)
     {
+        loadByString = false;
         SceneLoader.targetScene = targetScene;
 
-        SceneManager.LoadScene(targetScene.ToString());
+        SceneManager.LoadScene(SceneLoader.Scene.LoadingScene.ToString());
 
     }
 
     public static void LoadFromString(string targetScene)
     {
-        SceneManager.LoadScene(targetScene);
+        loadByString = true;
+        SceneLoader.targetSceneString = targetScene;
+        SceneManager.LoadScene(SceneLoader.Scene.LoadingScene.ToString());
     }
 
     public static void LoaderCallback()
     {
-        SceneManager.LoadScene(targetScene.ToString());
+        if(loadByString)
+        {
+            SceneManager.LoadScene(targetSceneString);
+        }
+        else
+        {
+            SceneManager.LoadScene(targetScene.ToString());
+        }
+        
     }
 }

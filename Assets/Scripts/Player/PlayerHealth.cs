@@ -6,8 +6,11 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float healthMax = 100f;
+    [SerializeField] private AudioClip deathAudioClip;
     
     private float health;
+
+    private bool isDead = false;
 
     private PlayerInventory playerInventory;
 
@@ -46,9 +49,28 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        if(health < 0)
+        if(health < 0 && !isDead)
         {
-            //Debug.Log("Player is dead");
+            if(GameInput.Instance != null)
+            {
+                GameInput.Instance.DeactivateAllGameInputs();
+            }
+            if(DeathScreenUI.Instance != null)
+            {
+                DeathScreenUI.Instance.Show();
+            }
+            if(MusicManager.Instance != null)
+            {
+                MusicManager.Instance.ActivateScriptedMusicHandling();
+                MusicManager.Instance.DirectlyChangeMusicClip(deathAudioClip);
+                MusicManager.Instance.DeactivateLoop();
+                
+            }
+            isDead = true;
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.DeathPause();
+            }
         }
         
     }

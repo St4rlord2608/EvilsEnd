@@ -64,7 +64,7 @@ public class LoadUI : MonoBehaviour
 
     private void LoadScene()
     {
-        SceneManager.LoadScene(CurrentProgress.GetProgressData().currentLevelName);
+        SceneLoader.LoadFromString(CurrentProgress.GetProgressData().currentLevelName);
     }
 
     private void SaveSystem_OnNewGameCreated(object sender, EventArgs e)

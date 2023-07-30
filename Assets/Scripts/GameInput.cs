@@ -336,6 +336,11 @@ public class GameInput : MonoBehaviour
             })
             .Start();
     }
+
+    public  void DeactivateAllGameInputs()
+    {
+        playerInputActions.Disable();
+    }
     private void OnDestroy()
     {
         playerInputActions.Player.Disable();

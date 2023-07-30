@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     private bool isPause = false;
     private bool isSafeHouse = false;
+    private bool isGameOver = false;
     private string currentScene;
 
     public event EventHandler OnGamePause;
@@ -26,6 +27,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        ActivateMouseCursor();
+        isGameOver = false;
+        Resume();
         Instance = this;
         currentScene = SceneManager.GetActiveScene().name;
         CurrentProgress.SetCurrentLevel(currentScene);
@@ -36,6 +40,10 @@ public class GameManager : MonoBehaviour
         else
         {
             isSafeHouse = false;
+        }
+        if(sceneType == SceneType.GameScene)
+        {
+            DisableMouseCursor();
         }
     }
     private void Start()
@@ -55,32 +63,74 @@ public class GameManager : MonoBehaviour
         HandleGamePause();
     }
 
+    
+
     private void HandleGamePause()
     {
-        if (isPause)
+        if(!isGameOver)
         {
-            Time.timeScale = 0.0f;
-            OnGamePause?.Invoke(this, EventArgs.Empty);
-            if (PauseMenuUI.Instance != null)
+            if (isPause)
             {
-                PauseMenuUI.Instance.Show();
+                
+                ActivateMouseCursor();
+                Time.timeScale = 0.0f;
+                OnGamePause?.Invoke(this, EventArgs.Empty);
+                if (PauseMenuUI.Instance != null)
+                {
+                    PauseMenuUI.Instance.Show();
+                }
+            }
+            else
+            {
+                if (sceneType == SceneType.GameScene)
+                {
+                    DisableMouseCursor();
+                }
+                
+                Time.timeScale = 1.0f;
+                OnGameResume?.Invoke(this, EventArgs.Empty);
+                if (PauseMenuUI.Instance != null)
+                {
+                    PauseMenuUI.Instance.Hide();
+                }
             }
         }
-        else
-        {
-            Time.timeScale = 1.0f;
-            OnGameResume?.Invoke(this, EventArgs.Empty);
-            if (PauseMenuUI.Instance != null)
-            {
-                PauseMenuUI.Instance.Hide();
-            }
-        }
+        
+    }
+
+    private void DisableMouseCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void ActivateMouseCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Resume()
     {
         isPause = false;
         HandleGamePause();
+    }
+
+    public void DeathPause()
+    {
+        isPause = true;
+        isGameOver = true;
+        if (isPause || isGameOver)
+        {
+            ActivateMouseCursor();
+            Time.timeScale = 0.0f;
+            OnGamePause?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+            OnGameResume?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public bool GetIsPause()

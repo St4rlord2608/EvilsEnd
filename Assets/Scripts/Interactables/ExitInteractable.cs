@@ -17,8 +17,10 @@ public class ExitInteractable : Interactable
             {
                 //character.id = CharacterDB.allCharacters.Count - 1;
             }
-
-            CharacterDB.AddCharacter(character);
+            if(scriptedPlayerInfo.CheckIfTransferToSafeHouseIsActive())
+            {
+                CharacterDB.AddCharacter(character);
+            }
         }
         if (player.TryGetComponent<PlayerWeaponHandler>(out PlayerWeaponHandler playerWeaponHandler))
         {
