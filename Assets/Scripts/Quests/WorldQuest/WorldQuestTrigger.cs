@@ -30,7 +30,6 @@ public class WorldQuestTrigger
     {
         
         string levelName = loadLevelUI.GetLevelName();
-        Debug.Log(loadLevelUI);
         if (LevelDB.CheckIfLevelIsInDictionary(levelName))
         {
             LevelData levelData = LevelDB.GetLevel(levelName);

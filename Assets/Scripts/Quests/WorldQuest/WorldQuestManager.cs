@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class WorldQuestManager : MonoBehaviour
 {
-    [SerializeField] private List<WorldQuest> worldQuestsList;
+    [SerializeField] private List<WorldQuest> worldQuestList;
+    [SerializeField] private bool DebugOverrideWorldQuests;
 
     private void Awake()
     {
@@ -25,19 +26,27 @@ public class WorldQuestManager : MonoBehaviour
 
     private void Start()
     {
-        if (!CurrentProgress.GetProgressData().WorldQuestsHaveBeenInitialized)
+        if (!CurrentProgress.GetProgressData().WorldQuestsHaveBeenInitialized || DebugOverrideWorldQuests)
         {
-            Debug.Log("set quests");
-            WorldQuestDB.SetQuests(worldQuestsList);
+            WorldQuestDB.SetQuests(worldQuestList);
             ProgressData progressData = CurrentProgress.GetProgressData();
             progressData.WorldQuestsHaveBeenInitialized = true;
             CurrentProgress.SetProgressData(progressData);
         }
         else
         {
-            worldQuestsList = WorldQuestDB.GetQuests();
+            List<WorldQuest> dbWorldQuestList = WorldQuestDB.GetQuests();
+            for (int index = 0; index < dbWorldQuestList.Count; index++)
+            {
+                WorldQuest worldQuest = worldQuestList[index];
+                worldQuest.isActive = dbWorldQuestList[index].isActive;
+                Debug.Log(dbWorldQuestList[index].isActive);
+                worldQuest.questCompleted = dbWorldQuestList[index].questCompleted;
+                worldQuest.questFailed = dbWorldQuestList[index].questFailed;
+                worldQuestList[index] = worldQuest;
+            }
         }
-        foreach(WorldQuest worldQuest in worldQuestsList)
+        foreach(WorldQuest worldQuest in worldQuestList)
         {
             if(worldQuest.isActive)
             {
@@ -51,7 +60,7 @@ public class WorldQuestManager : MonoBehaviour
     private void HandleCompletedQuests()
     {
         foreach(int id in WorldQuestHandler.GetAllCompletedQuestIds()) {
-            WorldQuest worldQuest = worldQuestsList[id];
+            WorldQuest worldQuest = worldQuestList[id];
             worldQuest.isActive = false;
             worldQuest.questCompleted = true;
             HandleIsCompleted(worldQuest);
@@ -59,19 +68,22 @@ public class WorldQuestManager : MonoBehaviour
             {
                 foreach(int nextQuestId in worldQuest.idsOfCompletedNextQuests)
                 {
-                    WorldQuest nextWorldQuest = worldQuestsList[nextQuestId];
+                    WorldQuest nextWorldQuest = worldQuestList[nextQuestId];
                     nextWorldQuest.isActive = true;
                     HandleIsActive(nextWorldQuest);
+                    worldQuestList[nextQuestId] = nextWorldQuest;
                 }
             }
+            worldQuestList[id] =  worldQuest;
         }
+        WorldQuestDB.SetQuests(worldQuestList);
         WorldQuestHandler.ClearCompletedQuestIds();
     }
     private void HandleFailedQuests()
     {
         foreach (int id in WorldQuestHandler.GetAllFailedQuestIds())
         {
-            WorldQuest worldQuest = worldQuestsList[id];
+            WorldQuest worldQuest = worldQuestList[id];
             worldQuest.isActive = false;
             worldQuest.questFailed = true;
             HandleIsFailed(worldQuest);
@@ -79,12 +91,15 @@ public class WorldQuestManager : MonoBehaviour
             {
                 foreach (int nextQuestId in worldQuest.idsOfFailedNextQuests)
                 {
-                    WorldQuest nextWorldQuest = worldQuestsList[nextQuestId];
+                    WorldQuest nextWorldQuest = worldQuestList[nextQuestId];
                     nextWorldQuest.isActive = true;
                     HandleIsActive(nextWorldQuest);
+                    worldQuestList[nextQuestId] = nextWorldQuest;
                 }
             }
+            worldQuestList[id] = worldQuest;
         }
+        WorldQuestDB.SetQuests(worldQuestList);
         WorldQuestHandler.ClearFailedQuestIds();
     }
 
@@ -94,7 +109,6 @@ public class WorldQuestManager : MonoBehaviour
         ActiveQuestsUI.Instance.Show();
         foreach (WorldQuestTrigger worldQuestTrigger in worldQuest.onIsActive)
         {
-            Debug.Log(worldQuestTrigger.loadLevelUI);
             worldQuestTrigger.Trigger();
         }
     }
@@ -117,7 +131,7 @@ public class WorldQuestManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        WorldQuestDB.SetQuests(worldQuestsList);
+        WorldQuestDB.SetQuests(worldQuestList);
         WorldQuestHandler.OnQuestCompleted -= WorldQuestHandler_OnQuestCompleted;
         WorldQuestHandler.OnQuestFailed -= WorldQuestHandler_OnQuestFailed;
     }

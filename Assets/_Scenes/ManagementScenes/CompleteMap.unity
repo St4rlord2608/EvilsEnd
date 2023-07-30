@@ -35610,8 +35610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabe8e0ae480b4f43ae083bb94091ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldQuestsList:
-  - questName: Go to the defined Safe House
+  worldQuestList:
+  - questName: Get to the safeHouse
     questId: 0
     onComplete:
     - type: 0
@@ -35627,19 +35627,20 @@ MonoBehaviour:
     isActive: 1
     questCompleted: 0
     questFailed: 0
-  - questName: Turn on the power at the local Power Plant
+  - questName: Turn on the power plant
     questId: 1
     onComplete: []
     onFailed: []
     onIsActive:
     - type: 0
       levelIsActive: 1
-      loadLevelUI: {fileID: 1846575342147596093}
+      loadLevelUI: {fileID: 1952537991}
     idsOfCompletedNextQuests: 
     idsOfFailedNextQuests: 
     isActive: 0
     questCompleted: 0
     questFailed: 0
+  DebugOverrideWorldQuests: 0
 --- !u!1001 &951242369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73897,6 +73898,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1952253594}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1952537991 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6643224208106177158, guid: 51dd9f9ac13439b4983ffc0c494af3e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1846575342147596092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55244c62d432bef438d3be22e8c3bf31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1958184037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81521,18 +81534,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51dd9f9ac13439b4983ffc0c494af3e1, type: 3}
---- !u!114 &1846575342147596093 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6643224208106177158, guid: 51dd9f9ac13439b4983ffc0c494af3e1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1846575342147596092}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55244c62d432bef438d3be22e8c3bf31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4613820037291431351
 PrefabInstance:
   m_ObjectHideFlags: 0
